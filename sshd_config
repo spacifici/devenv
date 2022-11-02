@@ -1,0 +1,7 @@
+PermitRootLogin no
+PubkeyAuthentication yes
+PasswordAuthentication no
+PermitEmptyPasswords no
+KbdInteractiveAuthentication no
+UsePAM yes
+Subsystem       sftp    /usr/lib/openssh/sftp-server
