@@ -1,4 +1,6 @@
-FROM ubuntu:22.04
+ARG ubuntu_version="22.04"
+
+FROM ubuntu:$ubuntu_version
 
 ARG uid=1000
 ARG gid=1000
@@ -33,7 +35,7 @@ RUN groupadd -g $docker_gid docker \
 &&  echo \
     "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null \
-&&  apt update \
+&&  apt-get update \
 &&  sudo apt-get install -y docker-ce docker-ce-cli docker-compose-plugin
 
 # User
